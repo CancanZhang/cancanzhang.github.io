@@ -19,8 +19,6 @@
 
 
 
-<link rel="icon" href="/images/favicon.svg">
-
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
@@ -101,15 +99,6 @@
             
             <div class="navbar-end">
                 
-                    
-                    
-                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                    
-                
                 
                 
                 <a class="navbar-item search" title="Search" href="javascript:;">
@@ -125,6 +114,80 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+    <div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 393 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/2018/11/27/Word-Embedding/">Word Embedding</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="1-Word2Vec"><a href="#1-Word2Vec" class="headerlink" title="1. Word2Vec"></a>1. Word2Vec</h2><ul>
+<li>CBOW: use context to predict target word</li>
+<li>Skip-Gram: use target word to predict context</li>
+</ul>
+<h4 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h4><p>Maximize the log likelihood (window size c):  </p>
+<p><img src="/images/skip_gram_obj.PNG" alt="skip_gram_obj"></p>
+<p>where the probability of a word appears near a given word is:</p>
+<p><img src="/images/skip_gram_p.PNG" alt="skip_gram_p"></p>
+<p><strong>The dot product of two word vectors is used to measure their similarity.</strong></p>
+<p>The network:</p>
+<p><img src="/images/skip_gram_net_arch.png" alt="skip_gram_net_arch"></p>
+<h2 id="2-Fasttext"><a href="#2-Fasttext" class="headerlink" title="2. Fasttext"></a>2. Fasttext</h2><ul>
+<li>Task: text classification (use a sentence or document to predict its class)</li>
+</ul>
+<p>Minimize the negative log likelihood:</p>
+<p><img src="/images/fasttext_obj.PNG" alt="fasttext_obj"></p>
+<p>where x represent the N-gram feature in this document, A is the look-up table stored the word embedding, B is also a weight matrix.  </p>
+<p>The network:</p>
+<p><img src="/images/fasttext_net_arch.PNG" alt="fasttext_net_arch"></p>
+<p>The network is similar to the ones of CBOW. However, the output here is the class instead of target word.</p>
+<h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><h4 id="1-Hierarchical-Softmax"><a href="#1-Hierarchical-Softmax" class="headerlink" title="(1) Hierarchical Softmax"></a>(1) Hierarchical Softmax</h4><p>It is a method to transfer a multi-class classification problem into several binary-class classification problems. It can be used in Word2Vec and Fasttext when the number of classes to be classified is large.</p>
+<p><img src="/images/hierarchical_softmax.PNG" alt="hierarchical_softmax"></p>
+<ul>
+<li><p>Use a Huffman tree. Each leaf represent a class. </p>
+<p><img src="/images/huffman_tree.PNG" alt="huffman_tree"></p>
+</li>
+<li><p>Calculate the probability of each class using chain rule.</p>
+</li>
+</ul>
+<h4 id="2-Negative-sampling"><a href="#2-Negative-sampling" class="headerlink" title="(2) Negative sampling"></a>(2) Negative sampling</h4><p>Another method to transfer a multi-class classification problem into several binary-class classification problems.</p>
+<p>In Skip-Gram, the objective function changed to:</p>
+<p><img src="/images/negative_sampling.PNG" alt="negative_sampling"></p>
+<p>It aims at maximize the probability of context word and minimize the probability of a subset of words do not belonging to its context. </p>
+<p>The probability of a word been choose corresponds to its frequency in the corpus. </p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Mikolov, T., Sutskever, I., Chen, K., Corrado, G.S. and Dean, J., 2013. Distributed representations of words and phrases and their compositionality. In <em>Advances in neural information processing systems</em> (pp. 3111-3119).  <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank" rel="noopener">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf</a></p>
+<p>[2] McCormick, 2016. Word2Vec Tutorial - The Skip-Gram Model <a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/" target="_blank" rel="noopener">http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/</a></p>
+<p>[3] Joulin, A., Grave, E., Bojanowski, P. and Mikolov, T., 2016. Bag of tricks for efficient text classification. <em>arXiv preprint arXiv:1607.01759</em>. <a href="https://arxiv.org/pdf/1607.01759.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1607.01759.pdf</a></p>
+<p>[4] Benjamin. 2017. Hierarchical Softmax. <a href="http://building-babylon.net/2017/08/01/hierarchical-softmax/" target="_blank" rel="noopener">http://building-babylon.net/2017/08/01/hierarchical-softmax/</a></p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
     <div class="card">
     
     <div class="card-content article ">
@@ -204,10 +267,10 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Post
+                        Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        1
+                        2
                     </p>
                 </div>
             </div>
@@ -281,6 +344,25 @@
         
         <article class="media">
             
+            <a href="/2018/11/27/Word-Embedding/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Word Embedding">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Word-Embedding/" class="has-link-black-ter is-size-6">Word Embedding</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/11/24/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
@@ -316,7 +398,7 @@
                     <span class="level-item">November 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -359,6 +441,25 @@
         
         <article class="media">
             
+            <a href="/2018/11/27/Word-Embedding/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Word Embedding">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Word-Embedding/" class="has-link-black-ter is-size-6">Word Embedding</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2018/11/24/hello-world/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
@@ -394,7 +495,7 @@
                     <span class="level-item">November 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -438,35 +539,6 @@
                 </p>
             </div>
             <div class="level-end">
-            
-                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
-                
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
-                        
-                        <i class="fab fa-creative-commons"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
-                        
-                        <i class="fab fa-creative-commons-by"></i>
-                        
-                    </a>
-                </p>
-                
-                <p class="control">
-                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="http://github.com/ppoffice/hexo-theme-icarus">
-                        
-                        <i class="fab fa-github"></i>
-                        
-                    </a>
-                </p>
-                
-                </div>
             
             </div>
         </div>

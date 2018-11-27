@@ -2,18 +2,31 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Archives - Cancan Zhang</title>
+<title>Word Embedding - Cancan Zhang</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Cancan Zhang">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+    <meta name="description" content="1. Word2Vec CBOW: use context to predict target word Skip-Gram: use target word to predict context  Skip-GramMaximize the log likelihood (window size c):    where the probability of a word appears nea">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Word Embedding">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/Word-Embedding/index.html">
 <meta property="og:site_name" content="Cancan Zhang">
+<meta property="og:description" content="1. Word2Vec CBOW: use context to predict target word Skip-Gram: use target word to predict context  Skip-GramMaximize the log likelihood (window size c):    where the probability of a word appears nea">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/skip_gram_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/skip_gram_p.PNG">
+<meta property="og:image" content="http://yoursite.com/images/skip_gram_net_arch.png">
+<meta property="og:image" content="http://yoursite.com/images/fasttext_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/fasttext_net_arch.PNG">
+<meta property="og:image" content="http://yoursite.com/images/hierarchical_softmax.PNG">
+<meta property="og:image" content="http://yoursite.com/images/huffman_tree.PNG">
+<meta property="og:image" content="http://yoursite.com/images/negative_sampling.PNG">
+<meta property="og:updated_time" content="2018-11-27T01:56:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cancan Zhang">
+<meta name="twitter:title" content="Word Embedding">
+<meta name="twitter:description" content="1. Word2Vec CBOW: use context to predict target word Skip-Gram: use target word to predict context  Skip-GramMaximize the log likelihood (window size c):    where the probability of a word appears nea">
+<meta name="twitter:image" content="http://yoursite.com/images/skip_gram_obj.PNG">
 
 
 
@@ -77,7 +90,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Cancan Zhang" height="28">
+                <img src="/images/logo.svg" alt="Word Embedding" height="28">
             
             </a>
         </div>
@@ -87,7 +100,7 @@
                 
                 <a class="navbar-item" href="/">Home</a>
                 
-                <a class="navbar-item is-active" href="/archives">Archives</a>
+                <a class="navbar-item" href="/archives">Archives</a>
                 
                 <a class="navbar-item" href="/categories">Categories</a>
                 
@@ -113,50 +126,92 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
         
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        2018
-        </h3>
-        <div class="timeline">
-        
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time>
-                        <a href="/2018/11/27/Word-Embedding/" class="has-link-black-ter is-size-6">Word Embedding</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
-            <article class="media">
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2018-11-24T04:26:02.000Z">2018-11-24</time>
-                        <a href="/2018/11/24/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </article>
-        
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 minutes read (About 393 words)
+                </span>
+                
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Word Embedding
+            
+        </h1>
+        <div class="content">
+            <h2 id="1-Word2Vec"><a href="#1-Word2Vec" class="headerlink" title="1. Word2Vec"></a>1. Word2Vec</h2><ul>
+<li>CBOW: use context to predict target word</li>
+<li>Skip-Gram: use target word to predict context</li>
+</ul>
+<h4 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h4><p>Maximize the log likelihood (window size c):  </p>
+<p><img src="/images/skip_gram_obj.PNG" alt="skip_gram_obj"></p>
+<p>where the probability of a word appears near a given word is:</p>
+<p><img src="/images/skip_gram_p.PNG" alt="skip_gram_p"></p>
+<p><strong>The dot product of two word vectors is used to measure their similarity.</strong></p>
+<p>The network:</p>
+<p><img src="/images/skip_gram_net_arch.png" alt="skip_gram_net_arch"></p>
+<h2 id="2-Fasttext"><a href="#2-Fasttext" class="headerlink" title="2. Fasttext"></a>2. Fasttext</h2><ul>
+<li>Task: text classification (use a sentence or document to predict its class)</li>
+</ul>
+<p>Minimize the negative log likelihood:</p>
+<p><img src="/images/fasttext_obj.PNG" alt="fasttext_obj"></p>
+<p>where x represent the N-gram feature in this document, A is the look-up table stored the word embedding, B is also a weight matrix.  </p>
+<p>The network:</p>
+<p><img src="/images/fasttext_net_arch.PNG" alt="fasttext_net_arch"></p>
+<p>The network is similar to the ones of CBOW. However, the output here is the class instead of target word.</p>
+<h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><h4 id="1-Hierarchical-Softmax"><a href="#1-Hierarchical-Softmax" class="headerlink" title="(1) Hierarchical Softmax"></a>(1) Hierarchical Softmax</h4><p>It is a method to transfer a multi-class classification problem into several binary-class classification problems. It can be used in Word2Vec and Fasttext when the number of classes to be classified is large.</p>
+<p><img src="/images/hierarchical_softmax.PNG" alt="hierarchical_softmax"></p>
+<ul>
+<li><p>Use a Huffman tree. Each leaf represent a class. </p>
+<p><img src="/images/huffman_tree.PNG" alt="huffman_tree"></p>
+</li>
+<li><p>Calculate the probability of each class using chain rule.</p>
+</li>
+</ul>
+<h4 id="2-Negative-sampling"><a href="#2-Negative-sampling" class="headerlink" title="(2) Negative sampling"></a>(2) Negative sampling</h4><p>Another method to transfer a multi-class classification problem into several binary-class classification problems.</p>
+<p>In Skip-Gram, the objective function changed to:</p>
+<p><img src="/images/negative_sampling.PNG" alt="negative_sampling"></p>
+<p>It aims at maximize the probability of context word and minimize the probability of a subset of words do not belonging to its context. </p>
+<p>The probability of a word been choose corresponds to its frequency in the corpus. </p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Mikolov, T., Sutskever, I., Chen, K., Corrado, G.S. and Dean, J., 2013. Distributed representations of words and phrases and their compositionality. In <em>Advances in neural information processing systems</em> (pp. 3111-3119).  <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank" rel="noopener">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf</a></p>
+<p>[2] McCormick, 2016. Word2Vec Tutorial - The Skip-Gram Model <a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/" target="_blank" rel="noopener">http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/</a></p>
+<p>[3] Joulin, A., Grave, E., Bojanowski, P. and Mikolov, T., 2016. Bag of tricks for efficient text classification. <em>arXiv preprint arXiv:1607.01759</em>. <a href="https://arxiv.org/pdf/1607.01759.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1607.01759.pdf</a></p>
+<p>[4] Benjamin. 2017. Hierarchical Softmax. <a href="http://building-babylon.net/2017/08/01/hierarchical-softmax/" target="_blank" rel="noopener">http://building-babylon.net/2017/08/01/hierarchical-softmax/</a></p>
+
+        </div>
+        
+        
+        
     </div>
 </div>
 
-    
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/24/hello-world/">
+                <span class="level-item">Hello World</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
 </div>
                 
 
@@ -454,7 +509,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Cancan Zhang" height="28">
+                    <img src="/images/logo.svg" alt="Word Embedding" height="28">
                 
                 </a>
                 <p class="is-size-7">
