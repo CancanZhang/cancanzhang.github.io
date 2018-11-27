@@ -14,19 +14,19 @@
 <meta property="og:site_name" content="Cancan Zhang">
 <meta property="og:description" content="1. Word2Vec CBOW: use context to predict target word Skip-Gram: use target word to predict context  Skip-GramMaximize the log likelihood (window size c):    where the probability of a word appears nea">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/skip_gram_obj.PNG">
-<meta property="og:image" content="http://yoursite.com/images/skip_gram_p.PNG">
-<meta property="og:image" content="http://yoursite.com/images/skip_gram_net_arch.png">
-<meta property="og:image" content="http://yoursite.com/images/fasttext_obj.PNG">
-<meta property="og:image" content="http://yoursite.com/images/fasttext_net_arch.PNG">
-<meta property="og:image" content="http://yoursite.com/images/hierarchical_softmax.PNG">
-<meta property="og:image" content="http://yoursite.com/images/huffman_tree.PNG">
-<meta property="og:image" content="http://yoursite.com/images/negative_sampling.PNG">
-<meta property="og:updated_time" content="2018-11-27T01:56:33.000Z">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/skip_gram_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/skip_gram_p.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/skip_gram_net_arch.png">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/fasttext_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/fasttext_net_arch.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/hierarchical_softmax.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/huffman_tree.PNG">
+<meta property="og:image" content="http://yoursite.com/images/word_embedding/negative_sampling.PNG">
+<meta property="og:updated_time" content="2018-11-27T14:22:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Word Embedding">
 <meta name="twitter:description" content="1. Word2Vec CBOW: use context to predict target word Skip-Gram: use target word to predict context  Skip-GramMaximize the log likelihood (window size c):    where the probability of a word appears nea">
-<meta name="twitter:image" content="http://yoursite.com/images/skip_gram_obj.PNG">
+<meta name="twitter:image" content="http://yoursite.com/images/word_embedding/skip_gram_obj.PNG">
 
 
 
@@ -138,7 +138,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 393 words)
+                    3 minutes read (About 409 words)
                 </span>
                 
             </div>
@@ -155,33 +155,33 @@
 <li>Skip-Gram: use target word to predict context</li>
 </ul>
 <h4 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h4><p>Maximize the log likelihood (window size c):  </p>
-<p><img src="/images/skip_gram_obj.PNG" alt="skip_gram_obj"></p>
+<p><img src="/images/word_embedding/skip_gram_obj.PNG" alt="skip_gram_obj"></p>
 <p>where the probability of a word appears near a given word is:</p>
-<p><img src="/images/skip_gram_p.PNG" alt="skip_gram_p"></p>
+<p><img src="/images/word_embedding/skip_gram_p.PNG" alt="skip_gram_p"></p>
 <p><strong>The dot product of two word vectors is used to measure their similarity.</strong></p>
 <p>The network:</p>
-<p><img src="/images/skip_gram_net_arch.png" alt="skip_gram_net_arch"></p>
+<p><img src="/images/word_embedding/skip_gram_net_arch.png" alt="skip_gram_net_arch"></p>
 <h2 id="2-Fasttext"><a href="#2-Fasttext" class="headerlink" title="2. Fasttext"></a>2. Fasttext</h2><ul>
 <li>Task: text classification (use a sentence or document to predict its class)</li>
 </ul>
 <p>Minimize the negative log likelihood:</p>
-<p><img src="/images/fasttext_obj.PNG" alt="fasttext_obj"></p>
+<p><img src="/images/word_embedding/fasttext_obj.PNG" alt="fasttext_obj"></p>
 <p>where x represent the N-gram feature in this document, A is the look-up table stored the word embedding, B is also a weight matrix.  </p>
 <p>The network:</p>
-<p><img src="/images/fasttext_net_arch.PNG" alt="fasttext_net_arch"></p>
+<p><img src="/images/word_embedding/fasttext_net_arch.PNG" alt="fasttext_net_arch"></p>
 <p>The network is similar to the ones of CBOW. However, the output here is the class instead of target word.</p>
 <h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><h4 id="1-Hierarchical-Softmax"><a href="#1-Hierarchical-Softmax" class="headerlink" title="(1) Hierarchical Softmax"></a>(1) Hierarchical Softmax</h4><p>It is a method to transfer a multi-class classification problem into several binary-class classification problems. It can be used in Word2Vec and Fasttext when the number of classes to be classified is large.</p>
-<p><img src="/images/hierarchical_softmax.PNG" alt="hierarchical_softmax"></p>
+<p><img src="/images/word_embedding/hierarchical_softmax.PNG" alt="hierarchical_softmax"></p>
 <ul>
 <li><p>Use a Huffman tree. Each leaf represent a class. </p>
-<p><img src="/images/huffman_tree.PNG" alt="huffman_tree"></p>
+<p><img src="/images/word_embedding/huffman_tree.PNG" alt="huffman_tree"></p>
 </li>
 <li><p>Calculate the probability of each class using chain rule.</p>
 </li>
 </ul>
 <h4 id="2-Negative-sampling"><a href="#2-Negative-sampling" class="headerlink" title="(2) Negative sampling"></a>(2) Negative sampling</h4><p>Another method to transfer a multi-class classification problem into several binary-class classification problems.</p>
 <p>In Skip-Gram, the objective function changed to:</p>
-<p><img src="/images/negative_sampling.PNG" alt="negative_sampling"></p>
+<p><img src="/images/word_embedding/negative_sampling.PNG" alt="negative_sampling"></p>
 <p>It aims at maximize the probability of context word and minimize the probability of a subset of words do not belonging to its context. </p>
 <p>The probability of a word been choose corresponds to its frequency in the corpus. </p>
 <h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Mikolov, T., Sutskever, I., Chen, K., Corrado, G.S. and Dean, J., 2013. Distributed representations of words and phrases and their compositionality. In <em>Advances in neural information processing systems</em> (pp. 3111-3119).  <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank" rel="noopener">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf</a></p>
@@ -199,6 +199,13 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/11/27/Visualize-High-Dimensional-Data/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Visualize High-Dimensional Data</span>
+            </a>
+        </div>
         
         
         <div class="level-end">
@@ -246,17 +253,17 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Posts
+                        Entradas
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        4
                     </p>
                 </div>
             </div>
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Categories
+                        Categorias
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -266,7 +273,7 @@
             <div class="level-item has-text-centered is-marginless">
                 <div>
                     <p class="heading">
-                        Tags
+                        Etiquetas
                     </p>
                     <p class="title has-text-weight-normal">
                         0
@@ -276,7 +283,7 @@
         </nav>
         <div class="level">
             <a class="level-item button is-link is-rounded" href="http://github.com/cancanzhang">
-                Follow</a>
+                SEGUIR</a>
         </div>
         
         
@@ -300,7 +307,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Categories
+                Categorias
             </h3>
             <ul class="menu-list">
             
@@ -318,8 +325,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cross Entropy, KL Divergency and MLE">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="has-link-black-ter is-size-6">Cross Entropy, KL Divergency and MLE</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Visualize High-Dimensional Data">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:18:07.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="has-link-black-ter is-size-6">Visualize High-Dimensional Data</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -367,7 +412,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -377,7 +422,7 @@
                     <span class="level-item">November 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -391,7 +436,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -415,8 +460,46 @@
 <div class="card widget">
     <div class="card-content">
         <h3 class="menu-label">
-            Recent
+            Recientes
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cross Entropy, KL Divergency and MLE">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="has-link-black-ter is-size-6">Cross Entropy, KL Divergency and MLE</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Visualize High-Dimensional Data">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:18:07.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="has-link-black-ter is-size-6">Visualize High-Dimensional Data</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -464,7 +547,7 @@
     <div class="card-content">
         <div class="menu">
         <h3 class="menu-label">
-            Archives
+            Archivos
         </h3>
         <ul class="menu-list">
         
@@ -474,7 +557,7 @@
                     <span class="level-item">November 2018</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">2</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -488,7 +571,7 @@
     <div class="card-content">
         <div class="menu">
             <h3 class="menu-label">
-                Tags
+                Etiquetas
             </h3>
             <ul class="menu-list">
                 
@@ -616,10 +699,10 @@ document.addEventListener('DOMContentLoaded', function () {
     (function (window) {
         var INSIGHT_CONFIG = {
             TRANSLATION: {
-                POSTS: 'Posts',
+                POSTS: 'Entradas',
                 PAGES: 'Pages',
-                CATEGORIES: 'Categories',
-                TAGS: 'Tags',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
                 UNTITLED: '(Untitled)',
             },
             CONTENT_URL: '/content.json',

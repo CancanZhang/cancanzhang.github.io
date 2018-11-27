@@ -2,22 +2,32 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Hello World - Cancan Zhang</title>
+<title>Cross Entropy, KL Divergency and MLE - Cancan Zhang</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="p: real probability, data q: predict probability 1. Min KL Divergence equals to min cross entropyCross Entropy: KL Divergence:  a). Minimize KL divergence is equal to minimize cross entropy. b). Kl di">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/11/24/hello-world/index.html">
+<meta property="og:title" content="Cross Entropy, KL Divergency and MLE">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/Cross-Entropy-KL-MLE/index.html">
 <meta property="og:site_name" content="Cancan Zhang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="p: real probability, data q: predict probability 1. Min KL Divergence equals to min cross entropyCross Entropy: KL Divergence:  a). Minimize KL divergence is equal to minimize cross entropy. b). Kl di">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-24T04:26:02.000Z">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/cross_entropy.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/kl_divergence.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/q_is_p.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/q_is_p.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/kl_is_possitive.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/mle.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/kl_divergence_for_mle.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/logx_less_than_x-1.PNG">
+<meta property="og:image" content="http://yoursite.com/images/cross_entropy_kl_mle/logx_less_than_x-1_prof.PNG">
+<meta property="og:updated_time" content="2018-11-27T14:47:07.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Cross Entropy, KL Divergency and MLE">
+<meta name="twitter:description" content="p: real probability, data q: predict probability 1. Min KL Divergence equals to min cross entropyCross Entropy: KL Divergence:  a). Minimize KL divergence is equal to minimize cross entropy. b). Kl di">
+<meta name="twitter:image" content="http://yoursite.com/images/cross_entropy_kl_mle/cross_entropy.PNG">
 
 
 
@@ -81,7 +91,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hello World" height="28">
+                <img src="/images/logo.svg" alt="Cross Entropy, KL Divergency and MLE" height="28">
             
             </a>
         </div>
@@ -123,13 +133,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-24T04:26:02.000Z">2018-11-24</time>
+                <time class="level-item has-text-grey" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 121 words)
+                    a minute read (About 206 words)
                 </span>
                 
             </div>
@@ -137,19 +147,23 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Hello World
+                Cross Entropy, KL Divergency and MLE
             
         </h1>
         <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p><strong>p</strong>: real probability, data</p>
+<p><strong>q</strong>: predict probability</p>
+<h2 id="1-Min-KL-Divergence-equals-to-min-cross-entropy"><a href="#1-Min-KL-Divergence-equals-to-min-cross-entropy" class="headerlink" title="1. Min KL Divergence equals to min cross entropy"></a>1. Min KL Divergence equals to min cross entropy</h2><h3 id="Cross-Entropy"><a href="#Cross-Entropy" class="headerlink" title="Cross Entropy: "></a>Cross Entropy: <img src="/images/cross_entropy_kl_mle/cross_entropy.PNG" alt="cross_entropy"></h3><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence:  "></a>KL Divergence:  <img src="/images/cross_entropy_kl_mle/kl_divergence.PNG" alt="kl_divergence"></h3><p>a). <strong>Minimize KL divergence is equal to minimize cross entropy</strong>.</p>
+<p>b). Kl divergence is non-negative and it reaches 0 when <img src="/images/cross_entropy_kl_mle/q_is_p.PNG" alt="q_is_p">, So <strong>the minimum of KL Divergence and Cross Entropy is when</strong> <img src="/images/cross_entropy_kl_mle/q_is_p.PNG" alt="q_is_p">.</p>
+<p><img src="/images/cross_entropy_kl_mle/kl_is_possitive.PNG" alt="kl_is_possitive"></p>
+<h2 id="2-Min-KL-Divergence-equals-to-max-MLE"><a href="#2-Min-KL-Divergence-equals-to-max-MLE" class="headerlink" title="2. Min KL Divergence equals to max MLE"></a>2. Min KL Divergence equals to max MLE</h2><h3 id="MLE"><a href="#MLE" class="headerlink" title="MLE:"></a>MLE:</h3><p><img src="/images/cross_entropy_kl_mle/mle.PNG" alt="mle"></p>
+<h3 id="KL"><a href="#KL" class="headerlink" title="KL:"></a>KL:</h3><p><img src="/images/cross_entropy_kl_mle/kl_divergence_for_mle.PNG" alt="kl_divergence_for_mle"></p>
+<h4 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix:"></a>Appendix:</h4><p>(1).  <img src="/images/cross_entropy_kl_mle/logx_less_than_x-1.PNG" alt="logx_less_than_x-1"></p>
+<p>​    Proof:</p>
+<p><img src="/images/cross_entropy_kl_mle/logx_less_than_x-1_prof.PNG" alt="logx_less_than_x-1_prof"></p>
+<p>​    So x = 1 is the maximum point of f(x). f(1) = 0. So f(x) &lt;= 0.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] <a href="https://stats.stackexchange.com/questions/335197/why-kl-divergence-is-non-negative" target="_blank" rel="noopener">https://stats.stackexchange.com/questions/335197/why-kl-divergence-is-non-negative</a></p>
+<p>[2] <a href="http://www.hongliangjie.com/2012/07/12/maximum-likelihood-as-minimize-kl-divergence/" target="_blank" rel="noopener">http://www.hongliangjie.com/2012/07/12/maximum-likelihood-as-minimize-kl-divergence/</a></p>
 
         </div>
         
@@ -162,13 +176,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/11/27/Word-Embedding/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Word Embedding</span>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/27/Visualize-High-Dimensional-Data/">
+                <span class="level-item">Visualize High-Dimensional Data</span>
+                <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
-        
         
     </div>
 </div>
@@ -547,7 +561,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hello World" height="28">
+                    <img src="/images/logo.svg" alt="Cross Entropy, KL Divergency and MLE" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -2,22 +2,38 @@
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
     <meta charset="utf-8">
-<title>Hello World - Cancan Zhang</title>
+<title>Visualize High-Dimensional Data - Cancan Zhang</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="Target: Minimize the divergence between two distributions:  ​    (1) a distribution that measures pairwise similarities of the input objects ​    (2) a distribution that measures pairwise similarities">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/11/24/hello-world/index.html">
+<meta property="og:title" content="Visualize High-Dimensional Data">
+<meta property="og:url" content="http://yoursite.com/2018/11/27/Visualize-High-Dimensional-Data/index.html">
 <meta property="og:site_name" content="Cancan Zhang">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="Target: Minimize the divergence between two distributions:  ​    (1) a distribution that measures pairwise similarities of the input objects ​    (2) a distribution that measures pairwise similarities">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-24T04:26:02.000Z">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_input.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_output.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_input_similarity.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_output_similarity.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/large_vis_pipeline.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/large_vis_random_projection_trees.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/large_vis_p.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/large_vis_p_weight.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/large_vis_obj.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/gaussian_distribution.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/gaussian_distribution_pij.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/studentt_distribution.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/studentt_distribution_qij.PNG">
+<meta property="og:image" content="http://yoursite.com/images/visualize_high_dimentional_data/gaussian_and_student_t.png">
+<meta property="og:updated_time" content="2018-11-27T14:26:33.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="Visualize High-Dimensional Data">
+<meta name="twitter:description" content="Target: Minimize the divergence between two distributions:  ​    (1) a distribution that measures pairwise similarities of the input objects ​    (2) a distribution that measures pairwise similarities">
+<meta name="twitter:image" content="http://yoursite.com/images/visualize_high_dimentional_data/tsne_input.PNG">
 
 
 
@@ -81,7 +97,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hello World" height="28">
+                <img src="/images/logo.svg" alt="Visualize High-Dimensional Data" height="28">
             
             </a>
         </div>
@@ -123,13 +139,13 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2018-11-24T04:26:02.000Z">2018-11-24</time>
+                <time class="level-item has-text-grey" datetime="2018-11-27T14:18:07.000Z">2018-11-27</time>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 121 words)
+                    3 minutes read (About 520 words)
                 </span>
                 
             </div>
@@ -137,19 +153,44 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Hello World
+                Visualize High-Dimensional Data
             
         </h1>
         <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <p><strong>Target:</strong> Minimize the divergence between two distributions: </p>
+<p>​    (1) a distribution that measures pairwise similarities of the input objects</p>
+<p>​    (2) a distribution that measures pairwise similarities of the low-dimensional points in the embedding</p>
+<p><strong>Inputs: </strong><img src="/images/visualize_high_dimentional_data/tsne_input.PNG" alt="tsne_input"></p>
+<p><strong>Outputs:</strong>  <img src="/images/visualize_high_dimentional_data/tsne_output.PNG" alt="tsne_output"></p>
+<h2 id="1-t-sne"><a href="#1-t-sne" class="headerlink" title="1. t-sne"></a>1. t-sne</h2><p><strong>The similarity probability of inputs (Gaussian kernel):</strong></p>
+<p><img src="/images/visualize_high_dimentional_data/tsne_input_similarity.PNG" alt="tsne_input_similarity"></p>
+<p><strong>The similarity probability of outputs (Student-t kernel):</strong></p>
+<p><img src="/images/visualize_high_dimentional_data/tsne_output_similarity.PNG" alt="tsne_output_similarity"></p>
+<p><strong>Minimize Objective Function: </strong></p>
+<p><img src="/images/visualize_high_dimentional_data/tsne_obj.PNG" alt="tsne_obj"></p>
+<h2 id="2-Large-Vis"><a href="#2-Large-Vis" class="headerlink" title="2. Large-Vis"></a>2. Large-Vis</h2><p>Following graph shows a typical pipeline of visualize high-dimensional data using K-NNG.</p>
+<p><img src="/images/visualize_high_dimentional_data/large_vis_pipeline.PNG" alt="large_vis_pipeline"></p>
+<p>(1) Use Random Projection Trees to construct K-NNG, and also consider second-order neighbors.</p>
+<p><img src="/images/visualize_high_dimentional_data/large_vis_random_projection_trees.PNG" alt="large_vis_random_projection_trees"></p>
+<p>(2) Once K-NNG is constructed, we want the low dimension distribution to capture this relationship. </p>
+<p><img src="/images/visualize_high_dimentional_data/large_vis_p.PNG" alt="large_vis_p"></p>
+<p><img src="/images/visualize_high_dimentional_data/large_vis_p_weight.PNG" alt="large_vis_p_weight"></p>
+<p>(3) It uses the idea of <strong>negative sampling</strong> in Word2Vec to maximize the likelihood function:</p>
+<p><img src="/images/visualize_high_dimentional_data/large_vis_obj.PNG" alt="large_vis_obj"></p>
+<h4 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix:"></a>Appendix:</h4><h5 id="1-Gaussian-Distribution"><a href="#1-Gaussian-Distribution" class="headerlink" title="(1). Gaussian Distribution"></a>(1). Gaussian Distribution</h5><p><img src="/images/visualize_high_dimentional_data/gaussian_distribution.PNG" alt="gaussian_distribution"></p>
+<p>Then when u =0,</p>
+<p><img src="/images/visualize_high_dimentional_data/gaussian_distribution_pij.PNG" alt="gaussian_distribution_pij"></p>
+<h5 id="2-Student-t-Distribution"><a href="#2-Student-t-Distribution" class="headerlink" title="(2) Student-t Distribution"></a>(2) Student-t Distribution</h5><p><img src="/images/visualize_high_dimentional_data/studentt_distribution.PNG" alt="studentt_distribution"></p>
+<p>Then,</p>
+<p><img src="/images/visualize_high_dimentional_data/studentt_distribution_qij.PNG" alt="studentt_distribution_qij"></p>
+<h5 id="3-The-choose-of-student-t-Distribution-in-low-dimension"><a href="#3-The-choose-of-student-t-Distribution-in-low-dimension" class="headerlink" title="(3) The choose of student-t Distribution in low-dimension"></a>(3) The choose of student-t Distribution in low-dimension</h5><p>If we draw the probability density function of Gaussian distribution (mu=0, sigma=1) and student-t distribution (n=1). We can see that Student-t distribution has long tails. Let’s consider two situations:</p>
+<p>a. When two points are similar (high probability), we can see that the distance in student-t distribution is shorter than the ones in Gaussian distribution.</p>
+<p>b. When two points are irrelevant to each other (low probability), the distance in student-t distribution is much longer than the ones in Gaussian distribution. </p>
+<p><img src="/images/visualize_high_dimentional_data/gaussian_and_student_t.png" alt="gaussian_and_student_t"></p>
+<p>We can conclude that the use of student-t distribution in low-dimension can keep similar data close while dissimilar data far apart.</p>
+<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Maaten, L.V.D. and Hinton, G., 2008. Visualizing data using t-SNE. <em>Journal of machine learning research</em>, <em>9</em>(Nov), pp.2579-2605. <a href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf" target="_blank" rel="noopener">http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf</a></p>
+<p>[2] Van Der Maaten, L., 2014. Accelerating t-SNE using tree-based algorithms. <em>The Journal of Machine Learning Research</em>, <em>15</em>(1), pp.3221-3245. <a href="http://www.jmlr.org/papers/volume15/vandermaaten14a/vandermaaten14a.pdf" target="_blank" rel="noopener">http://www.jmlr.org/papers/volume15/vandermaaten14a/vandermaaten14a.pdf</a></p>
+<p>[3] Tang, J., Liu, J., Zhang, M. and Mei, Q., 2016, April. Visualizing large-scale and high-dimensional data. In <em>Proceedings of the 25th International Conference on World Wide Web</em> (pp. 287-297). International World Wide Web Conferences Steering Committee. <a href="https://arxiv.org/pdf/1602.00370.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1602.00370.pdf</a></p>
 
         </div>
         
@@ -163,12 +204,19 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/11/27/Word-Embedding/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2018/11/27/Cross-Entropy-KL-MLE/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Word Embedding</span>
+                <span class="level-item">Cross Entropy, KL Divergency and MLE</span>
             </a>
         </div>
         
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/27/Word-Embedding/">
+                <span class="level-item">Word Embedding</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
         
     </div>
 </div>
@@ -547,7 +595,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hello World" height="28">
+                    <img src="/images/logo.svg" alt="Visualize High-Dimensional Data" height="28">
                 
                 </a>
                 <p class="is-size-7">
