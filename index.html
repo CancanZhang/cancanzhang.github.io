@@ -93,8 +93,6 @@
                 
                 <a class="navbar-item" href="/tags">Tags</a>
                 
-                <a class="navbar-item" href="/about">About</a>
-                
             </div>
             
             <div class="navbar-end">
@@ -126,7 +124,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 206 words)
+                    a minute read (About 207 words)
                 </span>
                 
             </div>
@@ -140,20 +138,17 @@
         <div class="content">
             <p><strong>p</strong>: real probability, data</p>
 <p><strong>q</strong>: predict probability</p>
-<h2 id="1-Min-KL-Divergence-equals-to-min-cross-entropy"><a href="#1-Min-KL-Divergence-equals-to-min-cross-entropy" class="headerlink" title="1. Min KL Divergence equals to min cross entropy"></a>1. Min KL Divergence equals to min cross entropy</h2><h3 id="Cross-Entropy"><a href="#Cross-Entropy" class="headerlink" title="Cross Entropy: "></a>Cross Entropy: <img src="/images/cross_entropy_kl_mle/cross_entropy.PNG" alt="cross_entropy"></h3><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence:  "></a>KL Divergence:  <img src="/images/cross_entropy_kl_mle/kl_divergence.PNG" alt="kl_divergence"></h3><p>a). <strong>Minimize KL divergence is equal to minimize cross entropy</strong>.</p>
-<p>b). Kl divergence is non-negative and it reaches 0 when <img src="/images/cross_entropy_kl_mle/q_is_p.PNG" alt="q_is_p">, So <strong>the minimum of KL Divergence and Cross Entropy is when</strong> <img src="/images/cross_entropy_kl_mle/q_is_p.PNG" alt="q_is_p">.</p>
-<p><img src="/images/cross_entropy_kl_mle/kl_is_possitive.PNG" alt="kl_is_possitive"></p>
-<h2 id="2-Min-KL-Divergence-equals-to-max-MLE"><a href="#2-Min-KL-Divergence-equals-to-max-MLE" class="headerlink" title="2. Min KL Divergence equals to max MLE"></a>2. Min KL Divergence equals to max MLE</h2><h3 id="MLE"><a href="#MLE" class="headerlink" title="MLE:"></a>MLE:</h3><p><img src="/images/cross_entropy_kl_mle/mle.PNG" alt="mle"></p>
-<h3 id="KL"><a href="#KL" class="headerlink" title="KL:"></a>KL:</h3><p><img src="/images/cross_entropy_kl_mle/kl_divergence_for_mle.PNG" alt="kl_divergence_for_mle"></p>
-<h4 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix:"></a>Appendix:</h4><p>(1).  <img src="/images/cross_entropy_kl_mle/logx_less_than_x-1.PNG" alt="logx_less_than_x-1"></p>
-<p>​    Proof:</p>
-<p><img src="/images/cross_entropy_kl_mle/logx_less_than_x-1_prof.PNG" alt="logx_less_than_x-1_prof"></p>
-<p>​    So x = 1 is the maximum point of f(x). f(1) = 0. So f(x) &lt;= 0.</p>
-<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] <a href="https://stats.stackexchange.com/questions/335197/why-kl-divergence-is-non-negative" target="_blank" rel="noopener">https://stats.stackexchange.com/questions/335197/why-kl-divergence-is-non-negative</a></p>
-<p>[2] <a href="http://www.hongliangjie.com/2012/07/12/maximum-likelihood-as-minimize-kl-divergence/" target="_blank" rel="noopener">http://www.hongliangjie.com/2012/07/12/maximum-likelihood-as-minimize-kl-divergence/</a></p>
-
+<h2 id="1-Min-KL-Divergence-equals-to-min-cross-entropy"><a href="#1-Min-KL-Divergence-equals-to-min-cross-entropy" class="headerlink" title="1. Min KL Divergence equals to min cross entropy"></a>1. Min KL Divergence equals to min cross entropy</h2><h3 id="Cross-Entropy"><a href="#Cross-Entropy" class="headerlink" title="Cross Entropy: "></a>Cross Entropy: <img src="/images/cross_entropy_kl_mle/cross_entropy.PNG" alt="cross_entropy"></h3><h3 id="KL-Divergence"><a href="#KL-Divergence" class="headerlink" title="KL Divergence:  "></a>KL Divergence:  <img src="/images/cross_entropy_kl_mle/kl_divergence.PNG" alt="kl_divergence"></h3>
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/11/27/Cross-Entropy-KL-MLE/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -175,7 +170,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 520 words)
+                    3 minutes read (About 521 words)
                 </span>
                 
             </div>
@@ -192,38 +187,16 @@
 <p>​    (2) a distribution that measures pairwise similarities of the low-dimensional points in the embedding</p>
 <p><strong>Inputs: </strong><img src="/images/visualize_high_dimentional_data/tsne_input.PNG" alt="tsne_input"></p>
 <p><strong>Outputs:</strong>  <img src="/images/visualize_high_dimentional_data/tsne_output.PNG" alt="tsne_output"></p>
-<h2 id="1-t-sne"><a href="#1-t-sne" class="headerlink" title="1. t-sne"></a>1. t-sne</h2><p><strong>The similarity probability of inputs (Gaussian kernel):</strong></p>
-<p><img src="/images/visualize_high_dimentional_data/tsne_input_similarity.PNG" alt="tsne_input_similarity"></p>
-<p><strong>The similarity probability of outputs (Student-t kernel):</strong></p>
-<p><img src="/images/visualize_high_dimentional_data/tsne_output_similarity.PNG" alt="tsne_output_similarity"></p>
-<p><strong>Minimize Objective Function: </strong></p>
-<p><img src="/images/visualize_high_dimentional_data/tsne_obj.PNG" alt="tsne_obj"></p>
-<h2 id="2-Large-Vis"><a href="#2-Large-Vis" class="headerlink" title="2. Large-Vis"></a>2. Large-Vis</h2><p>Following graph shows a typical pipeline of visualize high-dimensional data using K-NNG.</p>
-<p><img src="/images/visualize_high_dimentional_data/large_vis_pipeline.PNG" alt="large_vis_pipeline"></p>
-<p>(1) Use Random Projection Trees to construct K-NNG, and also consider second-order neighbors.</p>
-<p><img src="/images/visualize_high_dimentional_data/large_vis_random_projection_trees.PNG" alt="large_vis_random_projection_trees"></p>
-<p>(2) Once K-NNG is constructed, we want the low dimension distribution to capture this relationship. </p>
-<p><img src="/images/visualize_high_dimentional_data/large_vis_p.PNG" alt="large_vis_p"></p>
-<p><img src="/images/visualize_high_dimentional_data/large_vis_p_weight.PNG" alt="large_vis_p_weight"></p>
-<p>(3) It uses the idea of <strong>negative sampling</strong> in Word2Vec to maximize the likelihood function:</p>
-<p><img src="/images/visualize_high_dimentional_data/large_vis_obj.PNG" alt="large_vis_obj"></p>
-<h4 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix:"></a>Appendix:</h4><h5 id="1-Gaussian-Distribution"><a href="#1-Gaussian-Distribution" class="headerlink" title="(1). Gaussian Distribution"></a>(1). Gaussian Distribution</h5><p><img src="/images/visualize_high_dimentional_data/gaussian_distribution.PNG" alt="gaussian_distribution"></p>
-<p>Then when u =0,</p>
-<p><img src="/images/visualize_high_dimentional_data/gaussian_distribution_pij.PNG" alt="gaussian_distribution_pij"></p>
-<h5 id="2-Student-t-Distribution"><a href="#2-Student-t-Distribution" class="headerlink" title="(2) Student-t Distribution"></a>(2) Student-t Distribution</h5><p><img src="/images/visualize_high_dimentional_data/studentt_distribution.PNG" alt="studentt_distribution"></p>
-<p>Then,</p>
-<p><img src="/images/visualize_high_dimentional_data/studentt_distribution_qij.PNG" alt="studentt_distribution_qij"></p>
-<h5 id="3-The-choose-of-student-t-Distribution-in-low-dimension"><a href="#3-The-choose-of-student-t-Distribution-in-low-dimension" class="headerlink" title="(3) The choose of student-t Distribution in low-dimension"></a>(3) The choose of student-t Distribution in low-dimension</h5><p>If we draw the probability density function of Gaussian distribution (mu=0, sigma=1) and student-t distribution (n=1). We can see that Student-t distribution has long tails. Let’s consider two situations:</p>
-<p>a. When two points are similar (high probability), we can see that the distance in student-t distribution is shorter than the ones in Gaussian distribution.</p>
-<p>b. When two points are irrelevant to each other (low probability), the distance in student-t distribution is much longer than the ones in Gaussian distribution. </p>
-<p><img src="/images/visualize_high_dimentional_data/gaussian_and_student_t.png" alt="gaussian_and_student_t"></p>
-<p>We can conclude that the use of student-t distribution in low-dimension can keep similar data close while dissimilar data far apart.</p>
-<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Maaten, L.V.D. and Hinton, G., 2008. Visualizing data using t-SNE. <em>Journal of machine learning research</em>, <em>9</em>(Nov), pp.2579-2605. <a href="http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf" target="_blank" rel="noopener">http://www.jmlr.org/papers/volume9/vandermaaten08a/vandermaaten08a.pdf</a></p>
-<p>[2] Van Der Maaten, L., 2014. Accelerating t-SNE using tree-based algorithms. <em>The Journal of Machine Learning Research</em>, <em>15</em>(1), pp.3221-3245. <a href="http://www.jmlr.org/papers/volume15/vandermaaten14a/vandermaaten14a.pdf" target="_blank" rel="noopener">http://www.jmlr.org/papers/volume15/vandermaaten14a/vandermaaten14a.pdf</a></p>
-<p>[3] Tang, J., Liu, J., Zhang, M. and Mei, Q., 2016, April. Visualizing large-scale and high-dimensional data. In <em>Proceedings of the 25th International Conference on World Wide Web</em> (pp. 287-297). International World Wide Web Conferences Steering Committee. <a href="https://arxiv.org/pdf/1602.00370.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1602.00370.pdf</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/11/27/Visualize-High-Dimensional-Data/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -245,7 +218,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    3 minutes read (About 409 words)
+                    3 minutes read (About 410 words)
                 </span>
                 
             </div>
@@ -263,41 +236,16 @@
 </ul>
 <h4 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h4><p>Maximize the log likelihood (window size c):  </p>
 <p><img src="/images/word_embedding/skip_gram_obj.PNG" alt="skip_gram_obj"></p>
-<p>where the probability of a word appears near a given word is:</p>
-<p><img src="/images/word_embedding/skip_gram_p.PNG" alt="skip_gram_p"></p>
-<p><strong>The dot product of two word vectors is used to measure their similarity.</strong></p>
-<p>The network:</p>
-<p><img src="/images/word_embedding/skip_gram_net_arch.png" alt="skip_gram_net_arch"></p>
-<h2 id="2-Fasttext"><a href="#2-Fasttext" class="headerlink" title="2. Fasttext"></a>2. Fasttext</h2><ul>
-<li>Task: text classification (use a sentence or document to predict its class)</li>
-</ul>
-<p>Minimize the negative log likelihood:</p>
-<p><img src="/images/word_embedding/fasttext_obj.PNG" alt="fasttext_obj"></p>
-<p>where x represent the N-gram feature in this document, A is the look-up table stored the word embedding, B is also a weight matrix.  </p>
-<p>The network:</p>
-<p><img src="/images/word_embedding/fasttext_net_arch.PNG" alt="fasttext_net_arch"></p>
-<p>The network is similar to the ones of CBOW. However, the output here is the class instead of target word.</p>
-<h3 id="Tricks"><a href="#Tricks" class="headerlink" title="Tricks:"></a>Tricks:</h3><h4 id="1-Hierarchical-Softmax"><a href="#1-Hierarchical-Softmax" class="headerlink" title="(1) Hierarchical Softmax"></a>(1) Hierarchical Softmax</h4><p>It is a method to transfer a multi-class classification problem into several binary-class classification problems. It can be used in Word2Vec and Fasttext when the number of classes to be classified is large.</p>
-<p><img src="/images/word_embedding/hierarchical_softmax.PNG" alt="hierarchical_softmax"></p>
-<ul>
-<li><p>Use a Huffman tree. Each leaf represent a class. </p>
-<p><img src="/images/word_embedding/huffman_tree.PNG" alt="huffman_tree"></p>
-</li>
-<li><p>Calculate the probability of each class using chain rule.</p>
-</li>
-</ul>
-<h4 id="2-Negative-sampling"><a href="#2-Negative-sampling" class="headerlink" title="(2) Negative sampling"></a>(2) Negative sampling</h4><p>Another method to transfer a multi-class classification problem into several binary-class classification problems.</p>
-<p>In Skip-Gram, the objective function changed to:</p>
-<p><img src="/images/word_embedding/negative_sampling.PNG" alt="negative_sampling"></p>
-<p>It aims at maximize the probability of context word and minimize the probability of a subset of words do not belonging to its context. </p>
-<p>The probability of a word been choose corresponds to its frequency in the corpus. </p>
-<h4 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h4><p>[1] Mikolov, T., Sutskever, I., Chen, K., Corrado, G.S. and Dean, J., 2013. Distributed representations of words and phrases and their compositionality. In <em>Advances in neural information processing systems</em> (pp. 3111-3119).  <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf" target="_blank" rel="noopener">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf</a></p>
-<p>[2] McCormick, 2016. Word2Vec Tutorial - The Skip-Gram Model <a href="http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/" target="_blank" rel="noopener">http://mccormickml.com/2016/04/19/word2vec-tutorial-the-skip-gram-model/</a></p>
-<p>[3] Joulin, A., Grave, E., Bojanowski, P. and Mikolov, T., 2016. Bag of tricks for efficient text classification. <em>arXiv preprint arXiv:1607.01759</em>. <a href="https://arxiv.org/pdf/1607.01759.pdf" target="_blank" rel="noopener">https://arxiv.org/pdf/1607.01759.pdf</a></p>
-<p>[4] Benjamin. 2017. Hierarchical Softmax. <a href="http://building-babylon.net/2017/08/01/hierarchical-softmax/" target="_blank" rel="noopener">http://building-babylon.net/2017/08/01/hierarchical-softmax/</a></p>
-
         </div>
         
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2018/11/27/Word-Embedding/#more">Read More</a>
+                </div>
+            </div>
+        </div>
         
         
     </div>
@@ -463,12 +411,6 @@
         
         <article class="media">
             
-            <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cross Entropy, KL Divergency and MLE">
-                </p>
-            </a>
-            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
@@ -481,12 +423,6 @@
         </article>
         
         <article class="media">
-            
-            <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Visualize High-Dimensional Data">
-                </p>
-            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -501,12 +437,6 @@
         
         <article class="media">
             
-            <a href="/2018/11/27/Word-Embedding/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Word Embedding">
-                </p>
-            </a>
-            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
@@ -519,12 +449,6 @@
         </article>
         
         <article class="media">
-            
-            <a href="/2018/11/24/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -598,12 +522,6 @@
         
         <article class="media">
             
-            <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Cross Entropy, KL Divergency and MLE">
-                </p>
-            </a>
-            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
@@ -616,12 +534,6 @@
         </article>
         
         <article class="media">
-            
-            <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Visualize High-Dimensional Data">
-                </p>
-            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -636,12 +548,6 @@
         
         <article class="media">
             
-            <a href="/2018/11/27/Word-Embedding/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Word Embedding">
-                </p>
-            </a>
-            
             <div class="media-content">
                 <div class="content">
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
@@ -654,12 +560,6 @@
         </article>
         
         <article class="media">
-            
-            <a href="/2018/11/24/hello-world/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Hello World">
-                </p>
-            </a>
             
             <div class="media-content">
                 <div class="content">
@@ -729,7 +629,7 @@
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2018 John Doe&nbsp;
+                &copy; 2018 Cancan Zhang&nbsp;
                 Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
                 </p>
             </div>
