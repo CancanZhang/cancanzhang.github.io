@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+<title>Basics of Data Structure (Peking University) - Cancan Zhang</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+    <meta name="description" content="逻辑(logical structure)，存储(storage structure)，运算 (operation) 逻辑结构(logical structure): 集合，线性，树，图 存储结构(storage structure): 顺序，链式，散列(Hash) 线性结构 线性表: 顺序表(Array)，链表 栈 (LIFO, Last In First Out) - 深度搜索 队列 (FIF">
+<meta name="keywords" content="Data Structure">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Basics of Data Structure (Peking University)">
+<meta property="og:url" content="http://yoursite.com/2018/12/06/Data-Structure/index.html">
+<meta property="og:site_name" content="Cancan Zhang">
+<meta property="og:description" content="逻辑(logical structure)，存储(storage structure)，运算 (operation) 逻辑结构(logical structure): 集合，线性，树，图 存储结构(storage structure): 顺序，链式，散列(Hash) 线性结构 线性表: 顺序表(Array)，链表 栈 (LIFO, Last In First Out) - 深度搜索 队列 (FIF">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2018-12-06T03:10:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Basics of Data Structure (Peking University)">
+<meta name="twitter:description" content="逻辑(logical structure)，存储(storage structure)，运算 (operation) 逻辑结构(logical structure): 集合，线性，树，图 存储结构(storage structure): 顺序，链式，散列(Hash) 线性结构 线性表: 顺序表(Array)，链表 栈 (LIFO, Last In First Out) - 深度搜索 队列 (FIF">
+
+
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+    
+    <style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+    
+
+    
+    
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+    
+
+    
+    
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+
+    
+    
+    
+    
+
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+<link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Basics of Data Structure (Peking University)" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item" href="/">Home</a>
+                
+                <a class="navbar-item" href="/archives">Archives</a>
+                
+                <a class="navbar-item" href="/categories">Categories</a>
+                
+                <a class="navbar-item" href="/tags">Tags</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2018-12-06T02:52:25.000Z">2018-12-06</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Data-Structure/">Data Structure</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    12 minutes read (About 1802 words)
+                </span>
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Basics of Data Structure (Peking University)
+            
+        </h1>
+        <div class="content">
+            <p>逻辑(logical structure)，存储(storage structure)，运算 (operation)</p>
+<p>逻辑结构(logical structure): 集合，线性，树，图</p>
+<p>存储结构(storage structure): 顺序，链式，散列(Hash)</p>
+<h2 id="线性结构"><a href="#线性结构" class="headerlink" title="线性结构"></a>线性结构</h2><ul>
+<li>线性表: 顺序表(Array)，链表</li>
+<li>栈 (LIFO, Last In First Out) - 深度搜索</li>
+<li>队列 (FIFO, First In First Out) - 宽度搜索</li>
+</ul>
+<a id="more"></a> 
+<h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">class arrList: public List&lt;T&gt;&#123;</span><br><span class="line">private:</span><br><span class="line">	T *aList;</span><br><span class="line">	int maxSize;</span><br><span class="line">	int curLen;</span><br><span class="line">	int position;</span><br><span class="line">public:</span><br><span class="line">	arrList(const int size)&#123;</span><br><span class="line">    	maxSize = size; </span><br><span class="line">    	aList = new T[maxSize];</span><br><span class="line">    	curLen = position = 0;</span><br><span class="line">	&#125;</span><br><span class="line">	~arrList()&#123;</span><br><span class="line">    	delete [] aList;</span><br><span class="line">	&#125;	</span><br><span class="line">	void clear()&#123;</span><br><span class="line">    	delete [] aList; </span><br><span class="line">    	curLen = position = 0;</span><br><span class="line">    	aList = new T[maxSize];</span><br><span class="line">	&#125;</span><br><span class="line">	int length();</span><br><span class="line">	bool append(const T value);</span><br><span class="line">	bool insert(const int p, const T value);</span><br><span class="line">	bool delete(const int p);</span><br><span class="line">	bool setValue(const int p, const T value);</span><br><span class="line">	bool getValue(const int p, T&amp; value);</span><br><span class="line">	bool getPos(int &amp;p, const T value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt; </span><br><span class="line">bool arrList&lt;T&gt;::insert(const int p, const T value)&#123;</span><br><span class="line">  int i;</span><br><span class="line">  if (curLen&gt;=maxSize)&#123;</span><br><span class="line">  	cout &lt;&lt; &quot;The list is overflow&quot; &lt;&lt; endl; return false;</span><br><span class="line">  &#125;</span><br><span class="line">  if (p &lt; 0 || p &gt; curLen)&#123;</span><br><span class="line">    cout &lt;&lt; &quot;Insertion point is illegal&quot; &lt;&lt; endl; return false;</span><br><span class="line">  &#125;</span><br><span class="line">  for (i=curLen;i&gt;p;i--)&#123;</span><br><span class="line">    aList[i] = aList[i-1];</span><br><span class="line">  &#125;</span><br><span class="line">  aList[p] = value;</span><br><span class="line">  curLen ++;</span><br><span class="line">  return true;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">class Link&#123;</span><br><span class="line">public:</span><br><span class="line">	T data;</span><br><span class="line">	Link&lt;T&gt; *next;</span><br><span class="line">	Link(const T info, const Link&lt;T&gt; *nextValue=NULL)&#123;</span><br><span class="line">    	data = info;</span><br><span class="line">    	next = nextValue;</span><br><span class="line">	&#125;</span><br><span class="line">	Link(const Link&lt;T&gt; *nextValue)&#123;</span><br><span class="line">    	next = nextValue;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">class lnkList: public List&lt;T&gt;&#123;</span><br><span class="line">private:</span><br><span class="line">	Link&lt;T&gt; *head, *tail;</span><br><span class="line">    Link&lt;T&gt; *setPos(const int p);</span><br><span class="line">public:</span><br><span class="line">	InkList(int s);</span><br><span class="line">	~InkList();</span><br><span class="line">	bool isEmpty();</span><br><span class="line">	void clear();</span><br><span class="line">	int length;</span><br><span class="line">	bool append(const T value);</span><br><span class="line">	bool insert(const int p, const T value);</span><br><span class="line">	bool delete(const int p);</span><br><span class="line">	bool getValue(const int p,T&amp; value);</span><br><span class="line">	bool getPos(int &amp;p, const T value);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">Link&lt;T&gt; * lnkList &lt;T&gt;::setPos(int i)&#123;</span><br><span class="line">	int count = 0;</span><br><span class="line">	if (i==-1)</span><br><span class="line">		return head;</span><br><span class="line">	Link&lt;T&gt; *p = head-&gt;next;</span><br><span class="line">	while(p!=NULL &amp;&amp; count&lt;i)&#123;</span><br><span class="line">    	p = p-&gt;next;</span><br><span class="line">    	count++;</span><br><span class="line">	&#125;;</span><br><span class="line">	return p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">bool lnkList&lt;T&gt;::insert(const int i,const T value)&#123;</span><br><span class="line">	Link&lt;T&gt; *p,*q;</span><br><span class="line">	if((p=setPos(i-1))==NULL)&#123;</span><br><span class="line">    	cout&lt;&lt;&quot;illegal insert point&quot;&lt;&lt;endl;</span><br><span class="line">    	return false;</span><br><span class="line">	&#125;</span><br><span class="line">	q = new Link&lt;T&gt;(value,p-&gt;next);</span><br><span class="line">	p-&gt;next = q;</span><br><span class="line">	if(p == tail)&#123;</span><br><span class="line">      tail = q;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">bool InkList&lt;T&gt;::delete(const int i)&#123;</span><br><span class="line">	Link&lt;T&gt; *p,*q;</span><br><span class="line">	if ((p=setPos(i-1))==NULL ||p=tail)&#123;</span><br><span class="line">    	cout&lt;&lt;&quot;illegal insert point&quot;&lt;&lt;endl;</span><br><span class="line">    	return false;</span><br><span class="line">	&#125;</span><br><span class="line">	q = p-&gt;next;</span><br><span class="line">	if(q==tail)&#123;</span><br><span class="line">    	p = tail;</span><br><span class="line">    	p-&gt;next = NULL;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">    	p-&gt;next = q-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	delete q;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Qs"><a href="#Qs" class="headerlink" title="Qs:"></a>Qs:</h4><h5 id="1-约瑟夫问题"><a href="#1-约瑟夫问题" class="headerlink" title="1. 约瑟夫问题"></a>1. 约瑟夫问题</h5><p>有n只猴子，按顺时针方向围成一圈选大王（编号从1到n），从第1号开始报数，一直数到m，数到m的猴子退出圈外，剩下的猴子再接着从1开始报数。就这样，直到圈内只剩下一只猴子时，这个猴子就是猴王，编程求输入n，m后，输出最后猴王的编号。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">class Link&#123;</span><br><span class="line">public:</span><br><span class="line">	int data;</span><br><span class="line">	Link *prev,*next;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">class lnkList&#123;</span><br><span class="line">private:</span><br><span class="line">	Link *head=NULL,*tail=NULL,*position,*deletenode;</span><br><span class="line">public:</span><br><span class="line">	int length;</span><br><span class="line">	void setPos(const int i); </span><br><span class="line">	void createnode(int value);</span><br><span class="line">	void deletelnk();</span><br><span class="line">	int display();</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">void lnkList::setPos(const int m)&#123;</span><br><span class="line">	Link *p=position;</span><br><span class="line">	int count = 1;</span><br><span class="line">	while (count &lt; m)&#123;</span><br><span class="line">		p = p-&gt;next;</span><br><span class="line">		count ++;</span><br><span class="line">	&#125;</span><br><span class="line">	position = p;</span><br><span class="line">	//cout &lt;&lt; position-&gt;data &lt;&lt; endl;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">void lnkList::createnode(const int value)&#123;</span><br><span class="line">	Link *p = new Link;</span><br><span class="line">	p-&gt;data = value;</span><br><span class="line">	p-&gt;prev = NULL;</span><br><span class="line">	p-&gt;next = NULL;</span><br><span class="line">	if (head ==NULL)&#123;</span><br><span class="line">		head = p;</span><br><span class="line">		tail = p;</span><br><span class="line">		position = p;</span><br><span class="line">		p = NULL;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">		tail-&gt;next = p;</span><br><span class="line">		p-&gt;prev = tail;</span><br><span class="line">		tail = p;</span><br><span class="line">		tail-&gt;next = head;</span><br><span class="line">		head-&gt;prev = tail;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void lnkList::deletelnk()&#123;</span><br><span class="line">	deletenode = position;</span><br><span class="line">	position-&gt;next-&gt;prev = position-&gt;prev;</span><br><span class="line">	position-&gt;prev-&gt;next = position-&gt;next;</span><br><span class="line">	if(position == tail)&#123;</span><br><span class="line">		tail = position-&gt;prev;</span><br><span class="line">	&#125;else if(position == head)&#123;</span><br><span class="line">		head = position-&gt;next;</span><br><span class="line">	&#125;</span><br><span class="line">	position = position-&gt;next;</span><br><span class="line">	delete deletenode;</span><br><span class="line">	//cout &lt;&lt; position-&gt;data &lt;&lt; endl;</span><br><span class="line">	length --;</span><br><span class="line">&#125;</span><br><span class="line">int lnkList::display()&#123;</span><br><span class="line">	cout &lt;&lt; head-&gt;data &lt;&lt; endl;</span><br><span class="line">	return head-&gt;data;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()&#123;</span><br><span class="line">	int m,n;</span><br><span class="line">	cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">	int i=0;</span><br><span class="line">	lnkList moneky;</span><br><span class="line">	for(i=0;i&lt;n;i++)&#123;</span><br><span class="line">		moneky.createnode(i+1);</span><br><span class="line">	&#125;</span><br><span class="line">	moneky.length = n;</span><br><span class="line">	while(moneky.length&gt;1)&#123;</span><br><span class="line">		moneky.setPos(m);</span><br><span class="line">		moneky.deletelnk();</span><br><span class="line">	&#125;</span><br><span class="line">	moneky.display();</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template &lt;class T&gt; class arrStack : pulic Stack &lt;T&gt;&#123;</span><br><span class="line">private:</span><br><span class="line">	int mSize;</span><br><span class="line">	int top;</span><br><span class="line">	T *st;</span><br><span class="line">public:</span><br><span class="line">	arrStack(int size)&#123;</span><br><span class="line">    	mSize = size;</span><br><span class="line">    	top = -1;</span><br><span class="line">    	st = new T[mSize];</span><br><span class="line">	&#125;</span><br><span class="line">	arrStack()&#123;</span><br><span class="line">     	top = -1;</span><br><span class="line">	&#125;</span><br><span class="line">	~arrStack()&#123;</span><br><span class="line">    	delete [] st;</span><br><span class="line">	&#125;</span><br><span class="line">	void clear()&#123;</span><br><span class="line">    	top = -1;</span><br><span class="line">	&#125;</span><br><span class="line">	bool push(const T item)</span><br><span class="line">	bool pop(T&amp; item)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool arrStack&lt;T&gt;::push(const T item)&#123;</span><br><span class="line">	if (top == mSize-1)&#123;</span><br><span class="line">    	cout &lt;&lt;&quot;oversize&quot;&lt;&lt; endl;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">    	st[++top] = item;</span><br><span class="line">    	return true;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">bool arrStack&lt;T&gt;::pop(T&amp; item)&#123;</span><br><span class="line">	if (top == -1)&#123;</span><br><span class="line">    	cout &lt;&lt;&quot;stack is empty&quot; &lt;&lt; endl;</span><br><span class="line">    	return false;</span><br><span class="line">	&#125;else&#123;</span><br><span class="line">    	item = st[top--];</span><br><span class="line">    	return true;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template &lt;class T&gt; class Queue&#123;</span><br><span class="line">public:</span><br><span class="line">	void clear();</span><br><span class="line">	bool enQueue(const T item);</span><br><span class="line">	bool deQueue(T&amp;item);</span><br><span class="line">	bool getFront(T &amp;item);</span><br><span class="line">	bool isEmpty();</span><br><span class="line">	bool isFull();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class arrQueue: public Queue&lt;T&gt;&#123;</span><br><span class="line">private:</span><br><span class="line">	int mSize;</span><br><span class="line">	int front;</span><br><span class="line">	int rear;</span><br><span class="line">	T * qu;</span><br><span class="line">public:</span><br><span class="line">	arrQueue(int size);</span><br><span class="line">	~arrQueue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bool enqueue(const Elem&amp; it)&#123;</span><br><span class="line">	if (((rear+2)%size)==front) return false;</span><br><span class="line">	rear = (rear+1) % size;</span><br><span class="line">	listArray[rear] = it;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">bool dequeue(Elem&amp; it)&#123;</span><br><span class="line">	if (length()==0) return false;</span><br><span class="line">	it = listArray[front];</span><br><span class="line">	front = (front+1) % size;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Qs-1"><a href="#Qs-1" class="headerlink" title="Qs"></a>Qs</h4><h5 id="1-1-n的序列的出栈顺序数"><a href="#1-1-n的序列的出栈顺序数" class="headerlink" title="1. 1..n的序列的出栈顺序数"></a>1. 1..n的序列的出栈顺序数</h5><p>(1). f(1) = 1 ; f(2) = 2; f(3) = f(0)<em>f(2) <strong>1 first</strong> + f(1)</em>f(1) <strong>1 second</strong>+ f(2)*f(0) <strong>1 third</strong> …</p>
+<p>(2). Catalan number: C(2n,n) - C(2n,n+1)<br>Change the destination of all the false route for separating them but not the total number of them. </p>
+<h2 id="二叉树"><a href="#二叉树" class="headerlink" title="二叉树"></a>二叉树</h2><p>－ 第i层最多2<em>＊i个结点<br>－ 深度k，最多2</em>＊(k+1)-1个结点（2*＊0＋…+2<strong>k = 2</strong>(k+1)-1）<br>－ 终端结点数n0, 度为0的结点数n2, n0 =n2+1<br>－ 满二叉树：非空满二叉树树叶数目等于其分支结点数＋1 (深度k: 树叶2<strong>k 分支结点2</strong>k-1)<br>－ n个结点的完全二叉树高度为log(n+1)</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template &lt;class T&gt; </span><br><span class="line">class BinaryTreeNode&#123;</span><br><span class="line">friend class BinaryTree&lt;T&gt;;</span><br><span class="line">private:</span><br><span class="line">	T info;</span><br><span class="line">public:</span><br><span class="line">	BinaryTreeNode();</span><br><span class="line">	BinaryTreeNode(const T&amp; ele);</span><br><span class="line">	BinaryTreeNode(const T&amp; ele, BinaryTreeNode&lt;T&gt; *l, BinaryTreeNode&lt;T&gt; *r);</span><br><span class="line">	T value() const;</span><br><span class="line">	BinaryTreeNode &lt;T&gt;* leftchild() const;</span><br><span class="line">	BinaryTreeNode &lt;T&gt;* rightchild() const;</span><br><span class="line">	void setLeftchild(BinaryTreeNode&lt;T&gt;*);</span><br><span class="line">	void setRightchild(BinaryTreeNode&lt;T&gt;*);</span><br><span class="line">	void setValue(const T&amp; val);</span><br><span class="line">	bool isLeaf() const;</span><br><span class="line">	BinaryTreeNode&lt;T&gt;&amp; operator = (const BinaryTreeNode&lt;T&gt;&amp; Node);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">class BinaryTree&#123;</span><br><span class="line">private:</span><br><span class="line">	BinaryTreeNode&lt;T&gt;*root;</span><br><span class="line">public:</span><br><span class="line">	BinaryTree()&#123;root=NULL;&#125;;</span><br><span class="line">	~BinaryTree()&#123;DeleteBinaryTree(root);&#125;;</span><br><span class="line">	bool isEmpty() const;</span><br><span class="line">	BinaryTreeNode&lt;T&gt;*Root()&#123;return root;&#125;;</span><br><span class="line">	BinaryTreeNode&lt;T&gt;*Parent(BinaryTreeNode&lt;T&gt; *current);</span><br><span class="line">	BinaryTreeNode&lt;T&gt;*LeftSibling(BinaryTreeNode&lt;T&gt; *current);</span><br><span class="line">	BinaryTreeNode&lt;T&gt;*Rightsibling(BinaryTreeNode&lt;T&gt; *current);</span><br><span class="line">	void CreateTree(const T&amp; info, BinaryTree&lt;T&gt;&amp; leftTree, BinaryTree&lt;T&gt;&amp; rightTree);</span><br><span class="line">	void PreOrder(BinaryTreeNode&lt;T&gt; *root);</span><br><span class="line">	void InOrder(BinaryTreeNode&lt;T&gt; *root);</span><br><span class="line">	void PostOrder(BinaryTreeNode&lt;T&gt; *root);</span><br><span class="line">	void LevelOrder(BinaryTreeNode&lt;T&gt; *root);</span><br><span class="line">	void DeleteBinaryTree(BinaryTreeNode&lt;T&gt; *root);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="二叉搜索树-Binary-Search-Tree-BST"><a href="#二叉搜索树-Binary-Search-Tree-BST" class="headerlink" title="二叉搜索树 Binary Search Tree (BST)"></a>二叉搜索树 Binary Search Tree (BST)</h3><p>－ 任意结点，左子树中任意结点小于该结点值，右子树中任意结点大于该结点值。<br>－ 中序遍历是正序</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">void BinarySearchTree&lt;T&gt;::removehelp(BinaryTreeNode &lt;T&gt; *&amp; rt,const T val)&#123;</span><br><span class="line">if(rt==NULL) out&lt;&lt;val&lt;&lt;‘is not in the tree.\n’;</span><br><span class="line">else if (val &lt; rt-&gt;value())</span><br><span class="line">	removehelp(rt-&gt;leftchild(),val); # enter left child</span><br><span class="line">else if (val &gt; rt-&gt;value())</span><br><span class="line">	removehelp(rt-&gt;rightchild(),val); # enter right child</span><br><span class="line">else&#123; # right position</span><br><span class="line">	BinaryTreeNode &lt;T&gt; *temp = rt;</span><br><span class="line">	if (rt-&gt;leftchild()==NULL) rt = rt-&gt;rightchild();</span><br><span class="line">	else if (rt-&gt;rightchild()==NULL) rt = rt-&gt;leftchild();</span><br><span class="line">	else&#123;</span><br><span class="line">		temp = deletemin(rt-&gt;rightchild()); # find the min value in right child</span><br><span class="line">		rt-&gt;setValue(temp-&gt;value());</span><br><span class="line">	&#125;</span><br><span class="line">	delete temp;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">BinaryTreeNode* BST::deletemin(BinaryTreeNode &lt;T&gt; *&amp; rt)&#123;</span><br><span class="line">	if (rt-&gt;leftchild()!=NULL)</span><br><span class="line">		return deletemin(rt-&gt;leftchild());</span><br><span class="line">	else&#123;</span><br><span class="line">		BinaryTreeNode &lt;T&gt; *temp = rt;</span><br><span class="line">		rt = rt-&gt;rightchild();</span><br><span class="line">		return temp;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3><ul>
+<li>{K_0,K_1,…,K_{n-1}},<br>－ 根结点的值小于叶子结点的值, K_i &lt;= K_{2i+1}, K_i &lt;= K_{2i+2}<br>－ 兄弟之间无约束</li>
+</ul>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">class MinHeap&#123;</span><br><span class="line">private:</span><br><span class="line">	T* heapArray;</span><br><span class="line">	int CurrentSize;</span><br><span class="line">	int MaxSize;</span><br><span class="line">	void BuildHeap();</span><br><span class="line">public:</span><br><span class="line">	MinHeap(const int n);</span><br><span class="line">	virtual ~MinHeap()&#123;delete []heapArray;&#125;;</span><br><span class="line">	bool isLeaf(int pos) const;</span><br><span class="line">	int leafchild(int pos) const;</span><br><span class="line">	int rightchild(int pos) const;</span><br><span class="line">	int parent(int pos) const;</span><br><span class="line">	bool Remove(int pos, T&amp;node);</span><br><span class="line">	bool Insert(const T&amp; newNode);</span><br><span class="line">	T&amp; RemoveMin();</span><br><span class="line">	void SiftUp(int position);</span><br><span class="line">	void SiftDown(int left);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void MinHeap&lt;T&gt;::SiftDown(int position)&#123;</span><br><span class="line">	int i = position;</span><br><span class="line">	int j = 2*i + 1; </span><br><span class="line">	T temp = heapArray[i];</span><br><span class="line">	while(j &lt; CurrentSize)&#123;</span><br><span class="line">		if((j &lt;CurrentSize-1)&amp;&amp;(heapArray[j]&gt;heapArray[j+1]))</span><br><span class="line">			j++;</span><br><span class="line">		if(temp &gt; heapArray[j])&#123;</span><br><span class="line">			heapArray[i] = heapArray[j];</span><br><span class="line">			i = j;</span><br><span class="line">			j = 2*j +1;</span><br><span class="line">		&#125;</span><br><span class="line">		else break;</span><br><span class="line">	&#125;</span><br><span class="line">	heapArray[i] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void MinHeap&lt;T&gt;::SiftUp(int position)&#123;</span><br><span class="line">	int temps = position;</span><br><span class="line">	T temp = heapArray[temppos];</span><br><span class="line">	while((temppos&gt;0)&amp;&amp;(heapArray[parent(temppos)]&gt;temp))&#123;</span><br><span class="line">		heapArray[temppos] = heapArray[parent(temppos)];</span><br><span class="line">		temppos = parent(temps);</span><br><span class="line">	&#125;</span><br><span class="line">	heapArray[temppos] = temp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template &lt;class T&gt;</span><br><span class="line">void MinHeap&lt;T&gt;::BuildHeap()&#123;</span><br><span class="line">	for(int i = CurrentSize/2-1;i&gt;=0;i—-)&#123;</span><br><span class="line">		SiftDown(i);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">bool MinHeap&lt;T&gt;::Insert(const T&amp; newNode)&#123;</span><br><span class="line">	if(CurrentSize==MaxSize)</span><br><span class="line">		return false;</span><br><span class="line">	heapArray[CurrentSize] = newNode;</span><br><span class="line">	SiftUp(CurrentSize);</span><br><span class="line">	CurrentSize++;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">bool MinHeap&lt;T&gt;::Remove(int pos,T&amp; node)&#123;</span><br><span class="line">	if((pos&lt;0)||(pos&gt;=CurrentSize))</span><br><span class="line">		return false;</span><br><span class="line">	T temp = heapArray[pos];</span><br><span class="line">	heapArray[pos] = heapArray[—-CurrentSize];</span><br><span class="line">	if (heapArray[parent(pos)]&gt;heapArray[pos])</span><br><span class="line">		SiftUp(pos);</span><br><span class="line">	else SiftDown(pos);</span><br><span class="line">	node = temp;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Huffman树"><a href="#Huffman树" class="headerlink" title="Huffman树"></a>Huffman树</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template&lt;class T&gt;class HuffmanTree&#123;</span><br><span class="line">private:</span><br><span class="line">	HuffmanTreeNode&lt;T&gt; *root;</span><br><span class="line">	void MergeTree(HuffmanTreeNode&lt;T&gt; &amp;ht1,HuffmanTreeNode&lt;T&gt; &amp;ht2,HuffmanTreeNode&lt;T&gt;* parent);</span><br><span class="line">public:</span><br><span class="line">	HuffmanTree(T weight[],int n);</span><br><span class="line">	virtual ~HuffmanTree()&#123;DeleteTree(root);&#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">HuffmanTree&lt;T&gt;::HuffmanTree(T weight[],int n)&#123;</span><br><span class="line">	MinHeap&lt;HuffmanTreeNode&lt;T&gt;&gt; heap;</span><br><span class="line">	HuffmanTreeNode&lt;T&gt; *parent,&amp;leftchild,&amp;rightchild;</span><br><span class="line">	HuffmanTreeNode&lt;T&gt; *NodeList = new HuffmanTreeNode&lt;T&gt;[n];</span><br><span class="line">	for(int i=0;i&lt;n;i++)&#123;</span><br><span class="line">		NodeList[i].element = weight[i];</span><br><span class="line">		NodeList[i].parent = NodeList[i].left = NodeList[i].right = NULL;</span><br><span class="line">	heap.Insert(NodeList[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	for(i=0;i&lt;n-1;i++)&#123;</span><br><span class="line">		parent = new HuffmanTreeNode&lt;T&gt;;</span><br><span class="line">		firstchild = heap.RemoveMin();</span><br><span class="line">		secondchild = heap.RemoveMin();</span><br><span class="line">		MergeTree(firstchild,secondchild,parent);</span><br><span class="line">		heap.Insert(*parent);</span><br><span class="line">		root=parent;</span><br><span class="line">	&#125;</span><br><span class="line">	delete []NodeList;</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix:"></a>Appendix:</h2><h3 id="1-C"><a href="#1-C" class="headerlink" title="1. C++"></a>1. C++</h3><ul>
+<li><p>class</p>
+<figure class="highlight c++ hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Rectangle</span>&#123;</span></span><br><span class="line">  <span class="hljs-keyword">public</span>:</span><br><span class="line">  	<span class="hljs-keyword">int</span> w,h;</span><br><span class="line">  	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Area</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    		<span class="hljs-keyword">return</span> w*h;</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">Perimeter</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">    		<span class="hljs-keyword">return</span> <span class="hljs-number">2</span>*(w+h);</span><br><span class="line">  	&#125;</span><br><span class="line">  	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">Init</span><span class="hljs-params">(<span class="hljs-keyword">int</span> w_,<span class="hljs-keyword">int</span> h_)</span></span>&#123;</span><br><span class="line">    	w = w_; h = h_;</span><br><span class="line">  	&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="hljs-function"><span class="hljs-keyword">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span>&#123;</span><br><span class="line">  <span class="hljs-keyword">int</span> w,h;</span><br><span class="line">  Rectangle r;</span><br><span class="line">  <span class="hljs-built_in">cin</span> &gt;&gt; w &gt;&gt; h;</span><br><span class="line">  r.Init(w,h);</span><br><span class="line">  <span class="hljs-built_in">cout</span> &lt;&lt; r.Area() &lt;&lt; <span class="hljs-built_in">endl</span> &lt;&lt; r.Perimeter();</span><br><span class="line">  <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">template&lt;class T&gt;</span><br><span class="line">void print (const T array[], int size)&#123;</span><br><span class="line">  int i;</span><br><span class="line">  for (i=0;i&lt;size;i++) cout&lt;&lt;array[i];</span><br><span class="line">  return;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int a[10];</span><br><span class="line">print(a,10);</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>cin and cout</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">cin &gt;&gt; x; </span><br><span class="line">cin.getline(str,len,ch); //get a string with length len or stop at char ch such as &apos;\n&apos;</span><br><span class="line">ch = cin.get() //get a char</span><br><span class="line">cin.ignore(len,ch); </span><br><span class="line"></span><br><span class="line">int x;</span><br><span class="line">while(cin&gt;&gt;x)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">return 0;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">cout &lt;&lt; y;</span><br><span class="line">cout.put(&apos;A&apos;).put(&apos;a&apos;)</span><br><span class="line"></span><br><span class="line">int n = 10;</span><br><span class="line">cout &lt;&lt; n &lt;&lt; endl;</span><br><span class="line">cout &lt;&lt; hex &lt;&lt; n &lt;&lt; endl  # 16</span><br><span class="line">	 &lt;&lt; dec &lt;&lt; n &lt;&lt; endl  # 10</span><br><span class="line">     &lt;&lt; oct &lt;&lt; n &lt;&lt; endl; # 8 </span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  double x = 1234567.89, y = 12.34567;</span><br><span class="line">  int n = 1234567;</span><br><span class="line">  int m = 12;</span><br><span class="line">  cout &lt;&lt; setprecision(6) &lt;&lt; x &lt;&lt; endl # 1.23457e+10</span><br><span class="line">  	   &lt;&lt; y &lt;&lt; endl &lt;&lt; n &lt;&lt; endl &lt;&lt; m; # 12.3457 1234567 12</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;iomanip&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">  double x = 1234567.89, y = 12.34567;</span><br><span class="line">  int n = 1234567;</span><br><span class="line">  int m = 12;</span><br><span class="line">  cout &lt;&lt; setiosflags(ios::fixed) &lt;&lt; </span><br><span class="line">  	   setprecision(6) &lt;&lt; x &lt;&lt; endl # 1234567.890000</span><br><span class="line">  	   &lt;&lt; y &lt;&lt; endl &lt;&lt; n &lt;&lt; endl &lt;&lt; m; # 12.345670 1234567 12</span><br><span class="line">&#125;</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">// input: 1234567890</span><br><span class="line">cin.width(5);</span><br><span class="line">cin &gt;&gt; string; </span><br><span class="line">cout &lt;&lt; string &lt;&lt; endl; # 1234</span><br><span class="line">cin &gt;&gt; string;</span><br><span class="line">cout &lt;&lt; string &lt;&lt; endl; # 567890</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;% codeblock %&#125;</span><br><span class="line">ifstream fin; ofstream fout;</span><br><span class="line">fin.open(&apos;input.txt&apos;); fout.open(&apos;output.txt&apos;,ios::out);</span><br><span class="line">fin &gt;&gt; ...</span><br><span class="line">fout &lt;&lt; ...</span><br><span class="line">&#123;% endcodeblock %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="References"><a href="#References" class="headerlink" title="References:"></a>References:</h2><p>[1] <a href="https://en.wikipedia.org/wiki/Catalan_number" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/Catalan_number</a></p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Data-Structure/">Data Structure</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2018/11/27/Cross-Entropy-KL-MLE/">
+                <span class="level-item">Cross Entropy, KL Divergency and MLE</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered">
+                <div>
+                    <img class="image is-128x128 has-mb-6" src="/images/avatar.png" alt="Cancan Zhang">
+                    
+                    <p class="is-size-4 is-block">
+                        Cancan Zhang
+                    </p>
+                    
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Beijing, China</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Entradas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        5
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categorias
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Etiquetas
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        2
+                    </p>
+                </div>
+            </div>
+        </nav>
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="http://github.com/cancanzhang">
+                SEGUIR</a>
+        </div>
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank" title="Github" href="http://github.com/cancanzhang">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categorias
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Data-Structure/">
+            <span class="level-start">
+                <span class="level-item">Data Structure</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Machine-Learning/">
+            <span class="level-start">
+                <span class="level-item">Machine Learning</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Nube de etiquetas
+        </h3>
+        <a href="/tags/Data-Structure/" style="font-size: 10px;">Data Structure</a> <a href="/tags/Machine-Learning/" style="font-size: 20px;">Machine Learning</a>
+    </div>
+</div>
+
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-06T02:52:25.000Z">2018-12-06</time></div>
+                    <a href="/2018/12/06/Data-Structure/" class="has-link-black-ter is-size-6">Basics of Data Structure (Peking University)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Data-Structure/">Data Structure</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="has-link-black-ter is-size-6">Cross Entropy, KL Divergency and MLE</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:18:07.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="has-link-black-ter is-size-6">Visualize High-Dimensional Data</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Word-Embedding/" class="has-link-black-ter is-size-6">Word Embedding</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-24T04:26:02.000Z">2018-11-24</time></div>
+                    <a href="/2018/11/24/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Data-Structure/">
+                        <span class="level-start">
+                            <span class="level-item">Data Structure</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Machine-Learning/">
+                        <span class="level-start">
+                            <span class="level-item">Machine Learning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recientes
+        </h3>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-12-06T02:52:25.000Z">2018-12-06</time></div>
+                    <a href="/2018/12/06/Data-Structure/" class="has-link-black-ter is-size-6">Basics of Data Structure (Peking University)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Data-Structure/">Data Structure</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:45:04.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Cross-Entropy-KL-MLE/" class="has-link-black-ter is-size-6">Cross Entropy, KL Divergency and MLE</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T14:18:07.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Visualize-High-Dimensional-Data/" class="has-link-black-ter is-size-6">Visualize High-Dimensional Data</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-27T01:50:46.000Z">2018-11-27</time></div>
+                    <a href="/2018/11/27/Word-Embedding/" class="has-link-black-ter is-size-6">Word Embedding</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Machine-Learning/">Machine Learning</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2018-11-24T04:26:02.000Z">2018-11-24</time></div>
+                    <a href="/2018/11/24/hello-world/" class="has-link-black-ter is-size-6">Hello World</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archivos
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/12/">
+                <span class="level-start">
+                    <span class="level-item">December 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Etiquetas
+            </h3>
+            <ul class="menu-list">
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Data-Structure/">
+                        <span class="level-start">
+                            <span class="level-item">Data Structure</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">1</span>
+                        </span>
+                    </a>
+                </li>
+                
+                <li>
+                    <a class="level is-marginless" href="/tags/Machine-Learning/">
+                        <span class="level-start">
+                            <span class="level-item">Machine Learning</span>
+                        </span>
+                        <span class="level-end">
+                            <span class="level-item tag">3</span>
+                        </span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Basics of Data Structure (Peking University)" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2018 Basics of Data Structure (Peking University)&nbsp;
+                Powered by <a href="http://hexo.io/" target="_blank">Hexo</a> & <a href="http://github.com/ppoffice/hexo-theme-icarus">Icarus</a>
+                </p>
+            </div>
+            <div class="level-end">
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+
+    
+    
+    
+    <script src="/js/animation.js"></script>
+    
+
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+    <script src="/js/gallery.js" defer></script>
+    
+
+    
+    
+
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {matchFontHeight: false},
+        SVG: {matchFontHeight: false},
+        CommonHTML: {matchFontHeight: false}
+    });
+});
+</script>
+
+    
+    
+
+<a id="back-to-top" title="Back to Top" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+
+    
+    
+
+    
+    
+    
+    
+
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something...">
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Entradas',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categorias',
+                TAGS: 'Etiquetas',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
